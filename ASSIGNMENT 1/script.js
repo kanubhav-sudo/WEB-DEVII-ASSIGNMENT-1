@@ -44,3 +44,44 @@ function renderEvents() {
         `;
     });
 }
+
+function deleteEvent(index) {
+    events.splice(index, 1);
+    renderEvents();
+}
+
+function clearEvents() {
+    events = [];
+    renderEvents();
+}
+
+function addSampleEvents() {
+    events = [
+        {
+            title: "Web Development Conference",
+            date: "2026-02-15",
+            category: "Conference",
+            desc: "Annual conference on modern web technologies."
+        },
+        {
+            title: "JavaScript Workshop",
+            date: "2026-02-20",
+            category: "Workshop",
+            desc: "Hands-on JavaScript learning session."
+        }
+    ];
+    renderEvents();
+}
+
+function clearForm() {
+    document.getElementById("title").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("description").value = "";
+}
+document.getElementById("addEventBtn").addEventListener("click", addEvent);
+document.getElementById("clearEventsBtn").addEventListener("click", clearEvents);
+document.getElementById("addSampleBtn").addEventListener("click", addSampleEvents);
+
+
+renderEvents();
+
